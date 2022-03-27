@@ -1,9 +1,22 @@
+
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
-    {{ form.as_p }}
-    <input type="submit" value="Confirm">
-</form>
+<br><br>
+<div class="card text-center">
+    <div class="card-header">
+      Delete a ToDo Item
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+
+            <h1>Are you sure you want to delete "{{ object }}"?</h1>
+             
+            <br>
+            <button type="submit" class="btn btn-danger" > Delete Item</button>
+        </form>
+    </div>
+</div>
+
 {% endblock %}
