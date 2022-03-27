@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Created_date</th>
+        <th scope="col">Deadline</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for object in item %}
+            
+                <tr>
+                    <th scope="row">#</th>
+                    <td><a href="{% url 'item:item-detail' object.id %}">{{object.title}}</a></td>
+                    <td>{{object.description}}</td>
+                    <td>{{object.created_date}}</td>
+                    <td>{{object.deadline}}</td>
+                
+                </tr>
+          
+        {% empty %}
+                <tr>
+                    <th scope="row">#</th>
+                    <td>No to do list created yet.</td>
+                    <th scope="row">#</th>
+                    <th scope="row">#</th>
+                    <th scope="row">#</th>
+                
+                </tr>
+        
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Created_date</th>
+        <th scope="col">Deadline</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">#</th>
+        <td>{{object.title}}</td>
+        <td>{{object.description}}</td>
+        <td>{{object.created_date}}</td>
+        <td>{{object.deadline}}</td>
+        <td><a href="{% url 'item:item-update' object.id %}"><button type="button" class="btn btn-secondary">Edit</button></a></td>
+        <td><a href="{% url 'item:item-delete' object.id %}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+        
+       
+      </tr>
+    </tbody>
+</table>
+{% endblock %}
