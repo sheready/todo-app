@@ -27,3 +27,29 @@ Here's a link to the hosted website [SheReady ToDo App](https://sheready-todo-ap
 ###### Profile page view
 
 ![ProfileView](images/profile.png)
+
+###### Django Rest Framework is also implemented in the api app to show crud operations as a browsable api
+
+###### Create API View
+
+![CreateAPIView](images/create_api.png)
+
+![CreateAPIView](images/create_api2.png)
+
+###### List API View
+
+![ListAPIView](images/list_api.png)
+
+###### Update API View
+
+![UpdateAPIView](images/update_api.png)
+
+###### Delete API View
+
+![DeleteAPIView](images/delete_api.png)
+
+![DeleteAPIView](images/delete_api2.png)
+
+![ListAPIView](images/list_api2.png)
+
+
