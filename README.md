@@ -4,7 +4,7 @@
 
 This site is hosted on heroku.
 
-Here's a link to the website [SheReady ToDo App]()
+Here's a link to the hosted website [SheReady ToDo App]()
 
 ###### This are screenshots of the different webpages
 
@@ -15,12 +15,15 @@ Here's a link to the website [SheReady ToDo App]()
 ###### Create a TODo List Item
 
 ![CreateView](media/images/create.png)
+
 ###### Update a ToDo list Item
 
 ![UpdateView](media/images/edit.png)
+
 ###### Delete a TODO List Item
 
 ![DeleteView](media/images/delete.png)
+
 ###### Profile page view
 
 ![ProfileView](media/images/profile.png)
