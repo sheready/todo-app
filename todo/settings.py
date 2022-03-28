@@ -148,3 +148,6 @@ LOGOUT_REDIRECT_URL = '/item/'
 LOGIN_URL = "/users/login/"
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
+
+if os.path.exists('env.py'):
+        import env
