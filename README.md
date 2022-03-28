@@ -10,20 +10,20 @@ Here's a link to the hosted website [SheReady ToDo App]()
 
 ###### Home Page View / List of ToDo list items
 
-![ListView](./media/images/home_list.png)
+![ListView](images/home_list.png)
 
 ###### Create a TODo List Item
 
-![CreateView](./media/images/create.png)
+![CreateView](images/create.png)
 
 ###### Update a ToDo list Item
 
-![UpdateView](./media/images/edit.png)
+![UpdateView](images/edit.png)
 
 ###### Delete a TODO List Item
 
-![DeleteView](./media/images/delete.png)
+![DeleteView](images/delete.png)
 
 ###### Profile page view
 
-![ProfileView](./media/images/profile.png)
+![ProfileView](images/profile.png)
