@@ -5,53 +5,64 @@
 {% block title %}Profile Page{% endblock title %}
 
 {% block content %} 
-    
-    <div class="container-fluid mt-5">
-        <div class="row">
-            <div class="card col-lg-2 offset-lg-3 mb-3">
-                <div class="row">
-                    {% if user.profile.image %}
-                        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="{{ user.username }}">
-                    {% else %}
-                        <img class="rounded-circle account-img" src="images/Avatar.png" alt="{{ user.username }}">
-                    {% endif %}
-                 
-                    
-                </div>
+<section class="vh-100" style="background-color: #ececec;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-6 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0" style="background-color: #f6d365;">
+            <div class="col-md-4 gradient-custom text-center"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              {% if user.profile.image %}
+              <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="{{ user.username }}">
+              {% else %}
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+              {% endif %}
+              <h5>@ {{ user.username }}</h5>
+              <p>{{ user.profile.bio }}</p>
+              <a href="{% url 'user:profile-update' %}" class="btn btn-primary">Update profile</a>
             </div>
-            <div class="card col-lg-6 offset-lg-3 mb-3">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Username</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Bio</th>
-                        
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">@ {{ user.username }}</th>
-                        <td>{{ user.first_name }}</td>
-                        <td>{{ user.last_name }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.profile.bio }}</td>
-                      </tr>
-                  
-                    </tbody>
-                  </table>
-            </div>
-            <div class="card text-center">
-                
-                <div class="card-body">
-                 
-                  <a href="{% url 'user:profile-update' %}" class="btn btn-primary">Update profile</a>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Information</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted">info@example.com</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Phone</h6>
+                    <p class="text-muted">123 456 789</p>
+                  </div>
                 </div>
-               
+                <h6>Recent To-Do List Items</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Recent</h6>
+                    <p class="text-muted">Lorem ipsum</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Most Viewed</h6>
+                    <p class="text-muted">Dolor sit amet</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
               </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+</section>
+    
+
 
 {% endblock%}
