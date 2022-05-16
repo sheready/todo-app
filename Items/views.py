@@ -23,6 +23,7 @@ class ItemsCreateView(CreateView):
     fields = ['title', 'description', 'deadline']
     template_name = "items_create.html"
     success_url = reverse_lazy('item:item-list')
+    
 
 
 class ItemsDetailView(DetailView):
