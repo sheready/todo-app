@@ -20,7 +20,11 @@
                 alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
               {% endif %}
               <h5>@ {{ user.username }}</h5>
-              <p>{{ user.profile.bio }}</p>
+              {% if user.profile.bio %}
+                <p>{{ user.profile.bio }}</p>
+              {% else %}
+                <p>Click update to add a bio</p>
+              {% endif %}  
               <a href="{% url 'user:profile-update' %}" class="btn btn-primary">Update profile</a>
             </div>
             <div class="col-md-8">
@@ -30,7 +34,7 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <h6>Email</h6>
-                    <p class="text-muted">info@example.com</p>
+                    <p class="text-muted">{{ user.email }}</p>
                   </div>
                   <div class="col-6 mb-3">
                     <h6>Phone</h6>
