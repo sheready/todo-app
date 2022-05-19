@@ -4,10 +4,11 @@ import os
 import sys
 from dotenv import load_dotenv 
 
-
+#The dotenv package is very useful to import configuration information into environment variables.
 def main():
     """Run administrative tasks."""
     load_dotenv()
+     
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'todo.settings')
     try:
         from django.core.management import execute_from_command_line
