@@ -1,7 +1,7 @@
 from tempfile import template
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
-from users.forms import  LoginForm, UserRegisterForm, ProfileUpdateForm, UserUpdateForm
+from users.forms import  LoginForm, UserRegisterForm, ProfileUpdateForm, UserUpdateForm, VerifyForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required 
 from django.views.generic import CreateView, UpdateView, TemplateView, View, DetailView
@@ -10,15 +10,37 @@ from django.views import generic
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import login, authenticate, logout
 from django.template import RequestContext
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from users.models import Profile
 from django.urls import reverse
+from users import verify
 # Create your views here.
 
-class SignUpView(generic.CreateView):
+User = get_user_model()
+
+class SignUpView(View):
     form_class =  UserRegisterForm
     success_url = reverse_lazy("user:login")
     template_name = "signup.html"
+
+    def get(self, request):
+        form = self.form_class()
+        message = ''
+        return render(request, self.template_name, context={'form': form, 'message': message})
+        
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(self.success_url)
+            
+        else:
+            form = self.form_class
+            message = 'Incorrect Credentials!Please Try again'
+        return render(request, self.template_name, context={'form': form, 'message': message})
+
+
+
 
 @login_required
 def profile(request):
@@ -63,12 +85,30 @@ class LoginPageView(View):
             user = authenticate(
                 username=form.cleaned_data['username'],
                 password=form.cleaned_data['password'],
+                phone = verify.send(form.cleaned_data.get('phone'))
             )
+            
             if user is not None:
                 login(request, user)
                 return redirect('item:item-list')
         message = 'Incorrect Credentials!Please Try again'
         return render(request, self.template_name, context={'form': form, 'message': message})
+
+@login_required
+def verify_code(request):
+    if request.method == 'POST':
+        form = VerifyForm(request.POST)
+        if form.is_valid():
+            code = form.cleaned_data.get('code')
+            if verify.check(request.user.phone, code):
+                request.user.is_verified = True
+                request.user.save()
+                return redirect('index')
+    
+    else:
+        form = VerifyForm()
+    return render(request, 'verify.html', {'form': form})
+
 
 
 
