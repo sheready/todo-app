@@ -63,7 +63,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'crispy_forms',
     'rest_framework',
-    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -155,5 +154,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+AUTH_USER_MODEL = 'users.Person'
 
 django_heroku.settings(locals())
