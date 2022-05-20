@@ -30,7 +30,7 @@ class ProfileUpdateForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=63)
     password = forms.CharField(max_length=63, widget=forms.PasswordInput)
-    phone = forms.CharField(max_length=20, required=True, help_text='Phone number that will receive OTP')
+    
 
 class VerifyForm(forms.Form):
     code = forms.CharField(max_length=8, required=True, help_text='Enter Code')
