@@ -11,7 +11,7 @@ urlpatterns = [
     path('profile_update/', profile, name= 'profile-update'),
     path('profile/', login_required(ProfileView.as_view()), name="profile"),
     path('logout/', log_out, name="logout"),
-    path('verify/', views.verify_code),
+    path('verify/', views.verify_code, name="verify"),
    
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
